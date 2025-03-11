@@ -1,11 +1,11 @@
-iterations = 500
-node_count = 200
-alpha = 2
-delta = -0.9
-weight = 'power'
+from utils import Mode 
 
-mode =  'drawing'
-# 'energy time ratio'
-# 'energy evolution'
-# 'eigenvalues'
-# 'drawing'
+# Define simulation parameters
+iterations = 100
+node_count = 300
+alpha = 0
+delta = 2
+
+# Select a mode and a weight function
+weight = 'power'
+mode = Mode.ENERGY_EVOLUTION  

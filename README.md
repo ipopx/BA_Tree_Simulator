@@ -1,16 +1,16 @@
-# Barabási–Albert Tree Model Simulation 🌳
+# Preferential Attachment Tree Model Simulation 🌳
 
 This project simulates **random trees** using the **Preferential attachment model** and analyzes their properties. It generates trees, computes their energy statistics, and visualizes their structure.
 
 ---
 
 ## 📌 Features
-✅ Generate **Barabási–Albert Trees** using two different methods:
-   - Standard preferential attachment (`generate_barabasi_albert_tree`)
-   - Optimized bucket-based selection (`roll_barabasi_albert_tree`)
+✅ Generate **Preferential Attachment Trees** using two different methods:
+   - Preferential attachment using a custom attachment kernel (`generate_barabasi_albert_tree`)
+   - Random recursive trees (`generate_random_recursive_tree`)
 
 ✅ Visualize:
-   - **Tree structures** with `networkx`
+   - **Tree structures**
    - **Energy/time ratio statistics**
    - **Eigenvalue distributions**
    - **Energy evolution over time**
@@ -37,6 +37,7 @@ pip install -r requirements.txt
 │── utils.py                  # Utility functions (weight functions)
 │── config.py                 # Configuration parameters
 │── requirements.txt          # Required Python packages
+│── gamma.py                  # Numerical computation helper
 │── README.md                 # Project documentation
 ```
 
@@ -55,12 +56,23 @@ Modify `config.py` to customize the simulation.
   - `'power'` → Uses **w(d) = d^alpha**
   - `'affine'` → Uses **w(d) = d + delta**
 - `mode`: Selects the **type of analysis** to run.
-  - `'energy time ratio'`  → Computes and plots the energy/time ratio histogram
-  - `'energy evolution'`   → Computes and plots energy evolution over time
-  - `'eigenvalues'`        → Computes and plots eigenvalue distribution
-  - `'drawing'`            → Plots the generated tree structure
-
 ---
+
+### Available Modes
+
+The `mode` variable in `config.py` determines which type of analysis will be executed.  
+
+| Mode Enum                          | Description |
+|------------------------------------|------------------------------------------------|
+| `Mode.ENERGY_TIME_RATIO`           | Computes and plots the energy-to-time ratio histogram. |
+| `Mode.ENERGY_EVOLUTION`            | Computes and plots the energy evolution over time. |
+| `Mode.SCALED_ENERGY_EVOLUTION`     | Computes and plots the scaled energy evolution. |
+| `Mode.EIGENVALUES`                 | Computes and plots the eigenvalue distribution of the tree. |
+| `Mode.AVERAGED_EIGENVALUES`        | Computes and plots the averaged eigenvalue distribution from multiple trees. |
+| `Mode.DRAWING`                     | Visualizes the generated tree structure. |
+| `Mode.ENERGY_RANDOM_RECURSIVE_TREES` | Computes a lower bound approximation for the energy of random recursive trees. |
+
+
 
 ## 🎮 Usage
 

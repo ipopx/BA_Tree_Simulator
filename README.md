@@ -87,9 +87,9 @@ python main.py
 ## 📊 Output Examples
 
 ### **1️⃣ Energy Evolution Over Time**
-![Energy evolution](images/Figure_1.1.png)
+<img src="images/Figure_1.1.png" alt="Energy evolution" width="70%">
 
 ### **2️⃣ Tree Visualization**
-![Energy evolution](images/Figure_1.2.png)
+<img src="images/Figure_1.2.png" alt="Tree Visualization" width="70%">
 
 ---

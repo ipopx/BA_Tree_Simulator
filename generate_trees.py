@@ -104,9 +104,9 @@ def generate_multiple_trees(nr_iterations, node_count, weight_function):
         list: A list containing all eigenvalues from the generated trees.
     """
     
-    total_eigenvalues = []
+    total_eigenvalues = np.array([])
     for _ in range(nr_iterations):
         adjacency_matrix = generate_barabasi_albert_tree(node_count, weight_function)
         eigenvalues = np.linalg.eigvals(adjacency_matrix)
-        total_eigenvalues = total_eigenvalues + eigenvalues
+        total_eigenvalues = np.concatenate((total_eigenvalues, eigenvalues))
     return total_eigenvalues
